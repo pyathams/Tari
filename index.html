@@ -2562,6 +2562,8 @@ function renderBundles() {
 
   bundles.forEach(b => {
     const items = b.itemIds.map(id => products.find(p => p.id === id)).filter(Boolean);
+    // Hide bundles that contain any festival product
+    if (items.some(p => p.cat === 'festival')) return;
     const allInCart = items.every(p => cart.includes(p.id));
 
     // Build product chips HTML
