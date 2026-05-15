@@ -354,6 +354,95 @@
   }
   .festival-tab { animation: festivalPulse 1.8s ease-in-out infinite; }
 
+  /* ── MAY SLAY TAB ── */
+  .mayslay-tab {
+    background: linear-gradient(135deg, #D4609A, #F080C0) !important;
+    color: white !important;
+    border-color: #D4609A !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.04em;
+    box-shadow: 0 4px 18px rgba(212,96,154,0.45);
+    position: relative;
+    overflow: visible;
+  }
+  .mayslay-tab::before {
+    content: '15-31 MEI';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #C0185A;
+    color: white;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    padding: 2px 8px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+  @keyframes mayslayPulse {
+    0%, 100% { box-shadow: 0 4px 18px rgba(212,96,154,0.45); }
+    50% { box-shadow: 0 4px 30px rgba(212,96,154,0.8), 0 0 0 5px rgba(240,128,192,0.15); }
+  }
+  .mayslay-tab { animation: mayslayPulse 2s ease-in-out infinite; }
+
+  /* ── MAY SLAY BANNER ── */
+  .mayslay-banner {
+    background: linear-gradient(135deg, #D4609A 0%, #F080C0 50%, #FFB0D8 100%);
+    border-radius: 20px;
+    padding: 32px 40px;
+    margin-bottom: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+    grid-column: 1/-1;
+  }
+  .mayslay-banner::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 180px; height: 180px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+  }
+  .mayslay-banner::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 60px;
+    width: 220px; height: 220px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+  .mayslay-banner-text { position: relative; z-index: 1; }
+  .mayslay-banner-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 4vw, 38px);
+    font-weight: 600;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .mayslay-banner-text h2 em { font-style: italic; opacity: 0.9; }
+  .mayslay-banner-text p { font-size: 14px; color: rgba(255,255,255,0.85); margin: 0; }
+  .mayslay-banner-badges { display: flex; gap: 10px; flex-wrap: wrap; position: relative; z-index: 1; }
+  .mayslay-badge-item {
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  /* May Slay product card accent */
+  .mayslay-card { border: 1.5px solid rgba(212,96,154,0.25) !important; }
+  .mayslay-card:hover { border-color: rgba(212,96,154,0.5) !important; }
+
   /* ── FESTIVAL BANNER ── */
   .festival-banner {
     background: linear-gradient(135deg, #C0185A 0%, #E91E8C 50%, #FF6BB5 100%);
@@ -1284,9 +1373,141 @@
     .bundle-footer { flex-direction: column; align-items: flex-start; }
     .bundle-add-btn { width: 100%; text-align: center; }
   }
+
+  /* ── MAY SLAY COUNTDOWN BANNER ── */
+  #mayslayTopBanner {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    background: linear-gradient(90deg, #C0185A 0%, #D4609A 40%, #F080C0 70%, #D4609A 100%);
+    background-size: 200% 100%;
+    animation: bannerSlide 6s linear infinite;
+    padding: 9px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  @keyframes bannerSlide {
+    0% { background-position: 0% 0; }
+    100% { background-position: 200% 0; }
+  }
+  #mayslayTopBanner .banner-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  #mayslayTopBanner .banner-label span { opacity: 0.85; font-weight: 400; }
+  .countdown-blocks {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .cd-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 7px;
+    padding: 3px 9px;
+    min-width: 38px;
+  }
+  .cd-num {
+    font-size: 16px;
+    font-weight: 800;
+    color: white;
+    line-height: 1.1;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.04em;
+  }
+  .cd-label {
+    font-size: 8px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .cd-sep {
+    font-size: 18px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.7);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  #mayslayTopBanner .banner-cta {
+    background: white;
+    color: #C0185A;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 100px;
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+  }
+  #mayslayTopBanner .banner-cta:hover { opacity: 0.85; }
+  /* Push nav down when banner is showing */
+  body.has-banner nav { top: 38px; }
+  body.has-banner .hero { padding-top: 138px; }
+  @media (max-width: 600px) {
+    #mayslayTopBanner { gap: 10px; padding: 8px 12px; }
+    #mayslayTopBanner .banner-label { font-size: 10px; }
+    .cd-num { font-size: 14px; }
+    body.has-banner nav { top: 44px; }
+    body.has-banner .hero { padding-top: 144px; }
+  }
 </style>
 </head>
 <body>
+
+<!-- MAY SLAY COUNTDOWN BANNER -->
+<div id="mayslayTopBanner">
+  <div class="banner-label">🌸 May Slay Deals <span>berakhir dalam</span></div>
+  <div class="countdown-blocks">
+    <div class="cd-block"><span class="cd-num" id="cd-days">00</span><span class="cd-label">Hari</span></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-block"><span class="cd-num" id="cd-hours">00</span><span class="cd-label">Jam</span></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-block"><span class="cd-num" id="cd-mins">00</span><span class="cd-label">Menit</span></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-block"><span class="cd-num" id="cd-secs">00</span><span class="cd-label">Detik</span></div>
+  </div>
+  <a class="banner-cta" href="#catalog" onclick="filterCat('mayslay', document.getElementById('mayslayTab'))">Belanja Sekarang →</a>
+</div>
+
+<script>
+(function() {
+  // May Slay ends 31 May 2026 23:59:59 WIB (UTC+7)
+  const END = new Date('2026-05-31T23:59:59+07:00').getTime();
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function tick() {
+    const now = Date.now();
+    const diff = END - now;
+    if (diff <= 0) {
+      document.getElementById('mayslayTopBanner').style.display = 'none';
+      document.body.classList.remove('has-banner');
+      return;
+    }
+    const days  = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins  = Math.floor((diff % 3600000) / 60000);
+    const secs  = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent  = pad(days);
+    document.getElementById('cd-hours').textContent = pad(hours);
+    document.getElementById('cd-mins').textContent  = pad(mins);
+    document.getElementById('cd-secs').textContent  = pad(secs);
+  }
+  document.body.classList.add('has-banner');
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
 
 <!-- NAV -->
 <nav>
@@ -1756,6 +1977,7 @@ updateCatalog();
     <div class="cat-tabs">
       <button class="cat-tab promo-tab active" id="promoTab" onclick="filterCat('promo', this)">🔥 Promo Heboh</button>
       <button class="cat-tab festival-tab" id="festivalTab" onclick="filterCat('festival', this)" style="display:none;">🎀 Beauty Festival</button>
+      <button class="cat-tab mayslay-tab" id="mayslayTab" onclick="filterCat('mayslay', this)">🌸 May Slay Deals</button>
       <button class="cat-tab bundle-tab" id="bundleTab" onclick="filterCat('bundle', this)">⭐ Rekomendasi Elce</button>
       <button class="cat-tab" onclick="filterCat('semua', this)">Semua</button>
       <button class="cat-tab" onclick="filterCat('premium', this)" style="border-color:#C8A060;color:#C8A060;">💎 Parfum Premium</button>
@@ -2032,6 +2254,60 @@ const products = [
   { id:217, name:"Men's Collection Wild Green EDT 50ml", cat:'parfum', emoji:'🌲', bg:'green-bg', badge:'', badgeLabel:'', desc:'EDT pria segar & alami. Fougere Aromatic. Top: Ginger, Heart: Clary Sage, Base: Vetiver. Natural oils Cypress & Patchouli. Cocok: pria aktif & riang dekat alam. Mood: Percaya diri, Dinamis.', price:'Rp349.000', origPrice:'' , imgs:['https://media-cdn.oriflame.com/productImage?externalMediaId=product-management-media%2fProducts%2f44328%2f44328_1.png&id=1&q=90'] },
   { id:212, name:'Giordani Gold Essenza Man Elixir Parfum', cat:'parfum', emoji:'🏆', bg:'amber-bg', badge:'promo', badgeLabel:'–40%', desc:'Parfum pria premium 50ml. Woody Vetiver: Black Pepper, Olibanum, Ambery Woods. Hemat 40% promo Mei 2026. Kode: 45967', price:'Rp475.000', origPrice:'Rp789.000', imgs:oriImg(45967,4) },
   { id:58, name:'Giordani Gold Essenza Supreme Parfum', cat:'parfum', emoji:'🔴', bg:'rose-bg', badge:'promo', badgeLabel:'–40%', desc:'Parfum wanita premium 50ml. Ambery Floral: Pineapple, White Floral Infusion, Olibanum. Hemat 40% promo Mei 2026. Kode: 40683', price:'Rp475.000', origPrice:'Rp789.000', imgs:oriImg(40683,4) },
+
+  // ══════════════════════════════════════════════════════
+  // MAY SLAY DEALS – 15-31 MEI 2026
+  // ══════════════════════════════════════════════════════
+  // Hair Care
+  { id:301, name:'Beautanicals Repairing Conditioner 150ml', cat:'mayslay', emoji:'🌿', bg:'green-bg', badge:'promo', badgeLabel:'Hemat 67%', desc:'Kondisioner reparasi rambut dengan mineral botanikal. Perbaiki rambut rusak dari akar hingga ujung. Kode: 35890. Harga normal Rp149.000.', price:'Rp49.900', origPrice:'Rp149.000', imgs:oriImg(35890,3) },
+  { id:302, name:'Love Nature Shampoo Oily Hair Lemon & Mint 250ml', cat:'mayslay', emoji:'🍋', bg:'green-bg', badge:'promo', badgeLabel:'Hemat 50%', desc:'Sampo untuk rambut berminyak dengan bahan organik Lemon & Mint. Membersihkan optimal sekaligus menyegarkan. Kode: 41354. Harga normal Rp99.900.', price:'Rp49.900', origPrice:'Rp99.900', imgs:oriImg(41354,3) },
+  { id:303, name:'Duologi Anti-Flake Purifying Scalp Scrub 75ml', cat:'mayslay', emoji:'💜', bg:'purple-bg', badge:'promo', badgeLabel:'Hemat 34%', desc:'Scrub kulit kepala anti-ketombe purifying. Membersihkan dan menyehatkan kulit kepala secara mendalam. Kode: 44966. Harga normal Rp74.900.', price:'Rp49.900', origPrice:'Rp74.900', imgs:oriImg(44966,3) },
+  // Makeup
+  { id:304, name:'OnColour Cream Lipstick 2.5gr – Bright Fuchsia', cat:'mayslay', emoji:'💄', bg:'rose-bg', badge:'promo', badgeLabel:'Hemat 55%', desc:'Lipstik krim warna Bright Fuchsia yang bold dan vivid. Formula creamy lembap di bibir. Kode: 38693. Harga normal Rp54.900.', price:'Rp24.900', origPrice:'Rp54.900', imgs:oriImg(38693,3) },
+  { id:305, name:'OnColour Peach Glow Perfector 30ml', cat:'mayslay', emoji:'✨', bg:'amber-bg', badge:'promo', badgeLabel:'Hemat 62%', desc:'BB cream ringan warna Peach Glow. Menyamarkan ketidaksempurnaan dan memberikan tampilan kulit fresh alami. Kode: 39292. Harga normal Rp64.900.', price:'Rp24.900', origPrice:'Rp64.900', imgs:oriImg(39292,3) },
+  // The ONE Makeup
+  { id:306, name:'The ONE Illuskin Two Way Cake Foundation 13.2gr', cat:'mayslay', emoji:'🪞', bg:'amber-bg', badge:'promo', badgeLabel:'Hemat 50%', desc:'Foundation two-way cake coverage sempurna. Tersedia shade Light & Medium. Kompak praktis dibawa ke mana saja. Kode: 34450/34451. Harga normal Rp239.000.', price:'Rp119.000', origPrice:'Rp239.000', imgs:oriImg(34450,3) },
+  { id:307, name:'The ONE Make-up Pro Loose Powder 5gr', cat:'mayslay', emoji:'✨', bg:'amber-bg', badge:'promo', badgeLabel:'Hemat 57%', desc:'Loose powder profesional untuk finishing makeup sempurna. Memberikan tampilan matte dan tahan lama. Kode: 43416. Harga normal Rp209.000.', price:'Rp89.900', origPrice:'Rp209.000', imgs:oriImg(43416,3) },
+  { id:308, name:'The ONE Colour Unlimited Ultra Fix Liquid Lipstick 5ml', cat:'mayslay', emoji:'💋', bg:'rose-bg', badge:'promo', badgeLabel:'Hemat 52%', desc:'Liquid lipstik ultra fix tahan super lama. Tersedia shade Honey Toffee & Ashy Mauve. Kode: 44716/44719. Harga normal Rp189.000.', price:'Rp89.900', origPrice:'Rp189.000', imgs:oriImg(44716,3) },
+  { id:309, name:'The ONE Illuskin Glow Reflective Foundation 30ml', cat:'mayslay', emoji:'🌟', bg:'amber-bg', badge:'promo', badgeLabel:'Hemat 60%', desc:'Foundation glow reflective untuk tampilan kulit bercahaya. Shade Beige Warm cocok untuk kulit langsat-medium. Kode: 46334. Harga normal Rp209.000.', price:'Rp83.900', origPrice:'Rp209.000', imgs:oriImg(46334,3) },
+  // Self-care Tools
+  { id:310, name:'Serum And Mask Cover 1pcs', cat:'mayslay', emoji:'🎭', bg:'rose-bg', badge:'promo', badgeLabel:'Hemat 45%', desc:'Masker wajah silikon reusable untuk memaksimalkan penyerapan serum. Cocok untuk semua jenis serum & sheet mask. Kode: 47418. Harga normal Rp109.000.', price:'Rp59.900', origPrice:'Rp109.000', imgs:oriImg(47418,2) },
+  { id:311, name:'Everyday Foot File 1pcs', cat:'mayslay', emoji:'🦶', bg:'green-bg', badge:'promo', badgeLabel:'Hemat 51%', desc:'Alat penghalus telapak kaki untuk perawatan kaki ala salon di rumah. Mudah digunakan, hasil lembut. Kode: 47426. Harga normal Rp48.900.', price:'Rp23.900', origPrice:'Rp48.900', imgs:oriImg(47426,2) },
+  // Skincare Sets
+  { id:312, name:'Love Nature Radiance Facial Kit – Milk, Honey & Turmeric 4pcs', cat:'mayslay', emoji:'🍯', bg:'amber-bg', badge:'promo', badgeLabel:'Hemat 39%', desc:'Kit perawatan wajah organik 4 produk. Mengandung Susu, Madu & Kunyit untuk kulit cerah bercahaya. Kode: 42049. Harga normal Rp219.000.', price:'Rp129.000', origPrice:'Rp219.000', imgs:oriImg(42049,3) },
+  { id:313, name:'Love Nature Nourishing Facial Kit – Guarana, Papaya & Pineapple 4pcs', cat:'mayslay', emoji:'🍍', bg:'green-bg', badge:'promo', badgeLabel:'Hemat 39%', desc:'Kit perawatan wajah organik 4 produk. Kandungan Guarana, Pepaya & Nanas untuk nutrisi dan kelembapan kulit. Kode: 42050. Harga normal Rp219.000.', price:'Rp129.000', origPrice:'Rp219.000', imgs:oriImg(42050,3) },
+  // Hand & Body
+  { id:314, name:'Love Nature Protecting Hand & Nail Cream Passion Fruit 75ml', cat:'mayslay', emoji:'🫐', bg:'purple-bg', badge:'promo', badgeLabel:'Hemat 51%', desc:'Krim tangan & kuku dengan bahan organik Passion Fruit. Melindungi dan melembapkan tangan setiap hari. Kode: 47202. Harga normal Rp74.900.', price:'Rp36.900', origPrice:'Rp74.900', imgs:oriImg(47202,3) },
+  { id:315, name:'Dream Cream Hand Cream 30ml', cat:'mayslay', emoji:'🌸', bg:'rose-bg', badge:'promo', badgeLabel:'Hemat 42%', desc:'Krim tangan ringan cepat meresap dengan aroma bunga yang lembut. Kulit tangan terasa halus dan lembap sepanjang hari. Kode: 46219. Harga normal Rp42.900.', price:'Rp24.900', origPrice:'Rp42.900', imgs:oriImg(46219,3) },
+  { id:316, name:'Love Nature Sweet Delights Hand & Body Cream Pumpkin & Cinnamon 150ml', cat:'mayslay', emoji:'🎃', bg:'amber-bg', badge:'promo', badgeLabel:'Hemat 50%', desc:'Krim tangan & tubuh dengan bahan organik Labu & Kayu Manis. Aroma manis yang memanjakan, kulit lembut & lembap. Kode: 47275. Harga normal Rp139.000.', price:'Rp69.900', origPrice:'Rp139.000', imgs:oriImg(47275,3) },
+  // Men's care
+  { id:317, name:'North For Men Ultimate Balance Face Cream 50ml', cat:'mayslay', emoji:'🧴', bg:'sky-bg', badge:'promo', badgeLabel:'Hemat 57%', desc:'Krim wajah pria 5-in-1: hidrasi, perbaiki warna kulit, proteksi UV, kurangi jerawat & efek cooling. Kode: 43931. Harga normal Rp139.000.', price:'Rp59.900', origPrice:'Rp139.000', imgs:oriImg(43931,3) },
+  { id:318, name:'North For Men Subzero Hair & Body Wash 250ml', cat:'mayslay', emoji:'🚿', bg:'sky-bg', badge:'promo', badgeLabel:'Hemat 59%', desc:'Sabun rambut & tubuh pria 2-in-1 dengan efek 24h hydration feel dan D-Panthenol. Aroma Subzero yang cool & maskulin. Kode: 46631. Harga normal Rp169.000.', price:'Rp69.900', origPrice:'Rp169.000', imgs:oriImg(46631,3) },
+  { id:319, name:'North For Men Subzero Deodorant Roll-On 50ml', cat:'mayslay', emoji:'💨', bg:'sky-bg', badge:'promo', badgeLabel:'Hemat 52%', desc:'Deodoran roll-on pria Subzero. Perlindungan optimal dari bau badan seharian. Aroma cool & segar. Kode: 46633. Harga normal Rp72.900.', price:'Rp34.900', origPrice:'Rp72.900', imgs:oriImg(46633,3) },
+  // Intimate Care
+  { id:320, name:'Feminelle Refreshing Intimate Wash Rose Water 300ml', cat:'mayslay', emoji:'🌹', bg:'rose-bg', badge:'promo', badgeLabel:'Hemat 57%', desc:'Sabun area kewanitaan refreshing dengan formula pH seimbang dan Rose Water. Menjaga kesegaran dan kenyamanan sepanjang hari. Kode: 47099. Harga normal Rp139.000.', price:'Rp59.900', origPrice:'Rp139.000', imgs:oriImg(47099,3) },
+  { id:321, name:'Feminelle Gentle Intimate Wash Cotton Extract 300ml', cat:'mayslay', emoji:'🤍', bg:'rose-bg', badge:'promo', badgeLabel:'Hemat 57%', desc:'Sabun area kewanitaan gentle dengan Cotton Extract dan pH seimbang. Lembut, nyaman untuk pemakaian sehari-hari. Kode: 46964. Harga normal Rp139.000.', price:'Rp59.900', origPrice:'Rp139.000', imgs:oriImg(46964,3) },
+  // Glowing Skincare
+  { id:322, name:'Love Nature Hydrating Gel Cleanser Aloe Vera & Pineapple 125ml', cat:'mayslay', emoji:'🌵', bg:'green-bg', badge:'promo', badgeLabel:'Hemat 58%', desc:'Gel pembersih wajah ringan dengan Aloe Vera & Nanas organik. Cocok semua jenis kulit, membersihkan tanpa membuat kering. Kode: 46070. Harga normal Rp94.900.', price:'Rp39.900', origPrice:'Rp94.900', imgs:oriImg(46070,3) },
+  { id:323, name:'Love Nature Hydrating Face Cream Aloe Vera & Pineapple 50ml', cat:'mayslay', emoji:'🍍', bg:'green-bg', badge:'promo', badgeLabel:'Hemat 60%', desc:'Krim wajah hidrasi dengan Aloe Vera & Nanas organik. Melembapkan dan menyegarkan kulit sepanjang hari. Kode: 46071. Harga normal Rp99.900.', price:'Rp39.900', origPrice:'Rp99.900', imgs:oriImg(46071,3) },
+  { id:324, name:'Love Nature Hydrating Face Mask Aloe Vera & Pineapple 75ml', cat:'mayslay', emoji:'🎭', bg:'green-bg', badge:'promo', badgeLabel:'Hemat 60%', desc:'Masker wajah hidrasi dengan Aloe Vera & Nanas organik. Memberikan kelembapan intensif dan kesegaran kulit. Kode: 46072. Harga normal Rp99.900.', price:'Rp39.900', origPrice:'Rp99.900', imgs:oriImg(46072,3) },
+  { id:325, name:'Love Nature Hydrating Toner Aloe Vera & Pineapple 150ml', cat:'mayslay', emoji:'💧', bg:'green-bg', badge:'promo', badgeLabel:'Hemat 63%', desc:'Toner hidrasi dengan Aloe Vera & Nanas organik. Menyeimbangkan dan menghidrasi kulit setelah membersihkan wajah. Kode: 47003. Harga normal Rp109.000.', price:'Rp39.900', origPrice:'Rp109.000', imgs:oriImg(47003,3) },
+  // Fragrances – Eau de Parfum
+  { id:326, name:'Nordic Waters For Him Eau de Parfum 75ml', cat:'mayslay', emoji:'🌊', bg:'sky-bg', badge:'promo', badgeLabel:'Hemat 60%', desc:'EDP pria Nordic Waters. Aroma signature maskulin segar dengan sentuhan Lemon, Citrus & kayu yang elegan. Kode: 38550. Harga normal Rp579.000.', price:'Rp229.000', origPrice:'Rp579.000', imgs:oriImg(38550,3) },
+  { id:327, name:'Miss Giordani Eau de Parfum 50ml', cat:'mayslay', emoji:'👑', bg:'rose-bg', badge:'promo', badgeLabel:'Hemat 57%', desc:'EDP wanita Miss Giordani. Aroma feminin mewah yang elegan dan menawan. Signature scent untuk wanita modern. Kode: 47513. Harga normal Rp579.000.', price:'Rp249.000', origPrice:'Rp579.000', imgs:oriImg(47513,3) },
+  // Fragrances – Eau de Toilette Collection
+  { id:328, name:"Men's Collection Citrus Tonic Eau de Toilette 75ml", cat:'mayslay', emoji:'🍋', bg:'amber-bg', badge:'promo', badgeLabel:'Hemat 61%', desc:'EDT pria segar citrus tonic. Aroma zesty yang energizing untuk aktivitas sehari-hari. Kode: 30058. Harga normal Rp359.000.', price:'Rp139.000', origPrice:'Rp359.000', imgs:oriImg(30058,3) },
+  { id:329, name:"Women's Collection Innocent White Lilac Eau de Toilette 50ml", cat:'mayslay', emoji:'🤍', bg:'rose-bg', badge:'promo', badgeLabel:'Hemat 61%', desc:'EDT wanita bunga lilac putih yang innocent & feminin. Aroma floral segar yang romantis. Kode: 32438. Harga normal Rp359.000.', price:'Rp139.000', origPrice:'Rp359.000', imgs:oriImg(32438,3) },
+  { id:330, name:"Men's Collection Wild Green Eau de Toilette 75ml", cat:'mayslay', emoji:'🌲', bg:'green-bg', badge:'promo', badgeLabel:'Hemat 60%', desc:'EDT pria Wild Green. Aroma alam bebas yang segar dan maskulin. Kode: 44328. Harga normal Rp349.000.', price:'Rp139.000', origPrice:'Rp349.000', imgs:oriImg(44328,3) },
+  // Perfume Duo – All or Nothing Amplified
+  { id:331, name:'All Or Nothing Amplified Parfum 50ml', cat:'mayslay', emoji:'🟣', bg:'purple-bg', badge:'promo', badgeLabel:'Hemat 41%', desc:'Parfum wanita bold All Or Nothing Amplified. Aroma feminin kuat dan memukau. Kode: 46060. Harga normal Rp829.000.', price:'Rp489.000', origPrice:'Rp829.000', imgs:oriImg(46060,3) },
+  { id:332, name:'All Or Nothing Amplified Perfumed Body Cream 250ml', cat:'mayslay', emoji:'🫙', bg:'purple-bg', badge:'promo', badgeLabel:'Hemat 50%', desc:'Body cream beraroma parfum All Or Nothing Amplified. Beli parfumnya, dapatkan body cream spesial Rp19.900! Kode: 47020. Harga normal Rp199.000.', price:'Rp99.000', origPrice:'Rp199.000', imgs:oriImg(47020,3) },
+  // Glow Essentials
+  { id:333, name:'Glow Essentials Daily Care Set (Soap + Body Lotion)', cat:'mayslay', emoji:'✨', bg:'rose-bg', badge:'promo', badgeLabel:'Hemat 55%', desc:'Set perawatan kulit cerah harian: Soap Bar 75gr (Vit E & B3) + Body Lotion 250ml (Vit E & B3). Kode set: 157292. Harga normal Rp201.900.', price:'Rp89.900', origPrice:'Rp201.900', imgs:oriImg(43909,3) },
+  // Divine Perfume Duo
+  { id:334, name:'Divine Perfect Pair Set (EDP 50ml + Body Cream 250ml)', cat:'mayslay', emoji:'💎', bg:'sky-bg', badge:'promo', badgeLabel:'Hemat 59%', desc:'Set duo parfum ikonis Divine. Termasuk Divine EDP 50ml & Divine Perfumed Body Cream 250ml. Kode set: 157291. Harga normal Rp778.000.', price:'Rp319.000', origPrice:'Rp778.000', imgs:oriImg(38497,3) },
+  { id:335, name:'Divine Perfumed Body Cream 250ml', cat:'mayslay', emoji:'💙', bg:'sky-bg', badge:'promo', badgeLabel:'Hemat 55%', desc:'Body cream beraroma parfum Divine yang ikonik. Melembapkan kulit sekaligus meninggalkan wangi Divine yang tahan lama. Kode: 41545. Harga normal Rp199.000.', price:'Rp89.900', origPrice:'Rp199.000', imgs:oriImg(41545,3) },
+  { id:336, name:'Divine Eau de Parfum 50ml', cat:'mayslay', emoji:'🔷', bg:'sky-bg', badge:'promo', badgeLabel:'Hemat 52%', desc:'EDP wanita ikonik Divine. Aroma Floral Woody Fruity yang glamour dan elegan. Kode: 38497. Harga normal Rp579.000.', price:'Rp279.000', origPrice:'Rp579.000', imgs:oriImg(38497,3) },
 ];
 
 let cart = [];
@@ -2077,7 +2353,7 @@ function buildImage(p) {
   return `<span style="font-size:52px">${p.emoji}</span>`;
 }
 
-function renderProducts(filtered, showFestivalBanner) {
+function renderProducts(filtered, showFestivalBanner, showMaySlayBanner) {
   const grid = document.getElementById('productsGrid');
   const countEl = document.getElementById('searchCount');
   grid.innerHTML = '';
@@ -2095,6 +2371,23 @@ function renderProducts(filtered, showFestivalBanner) {
           <span class="festival-badge-item">🛒 Bayar Online</span>
           <span class="festival-badge-item">⚡ Stok Terbatas</span>
           <span class="festival-badge-item">📦 BV 75% Normal</span>
+        </div>
+      </div>`;
+  }
+
+  // May Slay banner
+  if (showMaySlayBanner) {
+    grid.innerHTML = `
+      <div class="mayslay-banner">
+        <div class="mayslay-banner-text">
+          <h2>🌸 Beauty <em>May Slay Deals</em></h2>
+          <p>Periode 15–31 Mei 2026 • Belanja min. <strong>Rp99.000</strong> dari Katalog Mei 2026</p>
+        </div>
+        <div class="mayslay-banner-badges">
+          <span class="mayslay-badge-item">💅 Mulai 23rb-an</span>
+          <span class="mayslay-badge-item">🛒 Bayar Online</span>
+          <span class="mayslay-badge-item">⚡ Stok Terbatas</span>
+          <span class="mayslay-badge-item">📦 BV 75% Normal</span>
         </div>
       </div>`;
   }
@@ -2119,21 +2412,24 @@ function renderProducts(filtered, showFestivalBanner) {
     const inCart = cart.includes(p.id);
     const badgeHtml = p.badge ? `<span class="prod-badge badge-${p.badge}">${p.badgeLabel}</span>` : '';
     const isFestival = p.cat === 'festival';
+    const isMaySlay = p.cat === 'mayslay';
     const savingPct = p.origPrice ? Math.round((1 - parsePrice(p.price)/parsePrice(p.origPrice))*100) : 0;
     const savingBadge = isFestival && savingPct > 0 ? `<div style="position:absolute;top:10px;left:10px;background:linear-gradient(135deg,#C0185A,#E91E8C);color:white;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;z-index:2;">Hemat ${savingPct}%</div>` : '';
+    const mayslayBadge = isMaySlay && savingPct > 0 ? `<div style="position:absolute;top:10px;left:10px;background:linear-gradient(135deg,#D4609A,#F080C0);color:white;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;z-index:2;">Hemat ${savingPct}%</div>` : '';
+    const priceColor = isFestival ? '#C0185A' : isMaySlay ? '#D4609A' : '#B85C38';
     grid.innerHTML += `
-      <div class="product-card visible ${isFestival ? 'festival-card' : ''}" data-id="${p.id}">
+      <div class="product-card visible ${isFestival ? 'festival-card' : ''} ${isMaySlay ? 'mayslay-card' : ''}" data-id="${p.id}">
         <div class="product-img ${p.bg}" style="position:relative;">
           ${buildImage(p)}
           ${badgeHtml}
-          ${savingBadge}
+          ${savingBadge}${mayslayBadge}
         </div>
         <div class="product-info">
           <div class="product-cat">${catLabel(p.cat)}</div>
           <div class="product-name">${p.name}</div>
           <div class="product-desc">${p.desc}</div>
           ${p.price ? `<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
-            <span style="font-size:17px;font-weight:700;color:${isFestival ? '#C0185A' : '#B85C38'};">${p.price}</span>
+            <span style="font-size:17px;font-weight:700;color:${priceColor};">${p.price}</span>
             <span style="font-size:12px;color:#9A7060;text-decoration:line-through;">${p.origPrice || ''}</span>
           </div>` : ''}
           <button class="add-btn ${inCart ? 'added' : ''}" id="btn-${p.id}" onclick="toggleCart(${p.id})">
@@ -2145,7 +2441,7 @@ function renderProducts(filtered, showFestivalBanner) {
 }
 
 function catLabel(cat) {
-  const m = { promo:'🔥 Promo Heboh', festival:'🎀 Beauty Festival', premium:'💎 Parfum Premium', parfum:'🌸 Parfum', wajah:'✨ Perawatan Wajah', tubuh:'💆 Perawatan Tubuh', makeup:'💄 Make Up', rambut:'💇 Rambut' };
+  const m = { promo:'🔥 Promo Heboh', festival:'🎀 Beauty Festival', mayslay:'🌸 May Slay Deals', premium:'💎 Parfum Premium', parfum:'🌸 Parfum', wajah:'✨ Perawatan Wajah', tubuh:'💆 Perawatan Tubuh', makeup:'💄 Make Up', rambut:'💇 Rambut' };
   return m[cat] || cat;
 }
 
@@ -2180,8 +2476,8 @@ function filterCat(cat, el) {
 
   let pool = cat === 'semua' ? products.filter(p => p.cat !== 'festival') : products.filter(p => p.cat === cat || (p.cats && p.cats.includes(cat)));
   // Promo & festival keep manual order (perfume → makeup → other); all others sort by biggest discount
-  if (cat !== 'promo' && cat !== 'festival') pool = sortByDiscount(pool);
-  renderProducts(pool, cat === 'festival');
+  if (cat !== 'promo' && cat !== 'festival' && cat !== 'mayslay') pool = sortByDiscount(pool);
+  renderProducts(pool, cat === 'festival', cat === 'mayslay');
 }
 
 function handleSearch(val) {
@@ -2194,13 +2490,14 @@ function handleSearch(val) {
 
   if (!currentSearch) {
     let pool = currentCat === 'semua' ? products.filter(p => p.cat !== 'festival') : products.filter(p => p.cat === currentCat || (p.cats && p.cats.includes(currentCat)));
-    if (currentCat !== 'promo' && currentCat !== 'festival') pool = sortByDiscount(pool);
-    renderProducts(pool, currentCat === 'festival');
+    if (currentCat !== 'promo' && currentCat !== 'festival' && currentCat !== 'mayslay') pool = sortByDiscount(pool);
+    renderProducts(pool, currentCat === 'festival', currentCat === 'mayslay');
     return;
   }
 
   const q = currentSearch.toLowerCase();
-  let searchPool = currentCat === 'semua' ? products.filter(p => p.cat !== 'festival') : products;
+  let searchPool = products.filter(p => p.cat !== 'festival');
+  if (currentCat !== 'semua') searchPool = searchPool.filter(p => p.cat === currentCat || (p.cats && p.cats.includes(currentCat)));
   let filtered = searchPool.filter(p =>
     p.name.toLowerCase().includes(q) ||
     p.desc.toLowerCase().includes(q) ||
